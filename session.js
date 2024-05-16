@@ -63,10 +63,13 @@ export const obtenerUsuarioEnSesion = () => {
 
     const usuarios = obtenerUsuarios();
     for(const usuario of usuarios){
-        if (usuario.id === usuarioActivo){
+        if (usuario.id === parseInt(usuarioActivo)){
             return usuario;
         }
     }
 
     return null;
+};
+export const logout = () => {
+    localStorage.removeItem(USUARIOS_ACTIVO_KEY);
 };
